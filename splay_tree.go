@@ -154,7 +154,7 @@ func (st *splayTree) DeleteMin() Item {
 		return nil
 	}
 	x := st.root
-	for x != nil {
+	for x != nil && x.left != nil {
 		x = x.left
 	}
 	st.splay(x.item)
@@ -167,7 +167,7 @@ func (st *splayTree) DeleteMax() Item {
 		return nil
 	}
 	x := st.root
-	for x != nil {
+	for x != nil && x.right != nil {
 		x = x.right
 	}
 	st.splay(x.item)
